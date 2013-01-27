@@ -12,49 +12,57 @@
 
 using System.Diagnostics;
 using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace WordFinder
 {
-    public partial class MainWindow
+    public partial class CellElement : DependencyObject
     {
-        readonly Finder m_finder;
-        readonly Cell[] m_cells;
 
-        public MainWindow()
+        partial void Coerce_Value(string value, ref string coercedValue)
+        {
+            coercedValue = (value ?? "").ToUpper();
+        }
+
+    }
+
+    partial class MainWindow
+    {
+        Finder m_finder;
+
+        partial void Constructed__MainWindow()
         {
             InitializeComponent();
 
             m_finder = new Finder();
-            m_cells = new[]
-                          {
-                              "D",
-                              "D",
-                              "A",
-                              "E",
-                              "R",
-                              "R",
-                              "ST",
-                              "N",
-                              "G",
-                              "A",
-                              "M",
-                              "I",
-                              "A",
-                              "Y",
-                              "K",
-                              "D",
-                          }
-                .Select(v => new Cell(v))
+
+            Cells = Enumerable
+                .Range(0, 16)
+                .Select(i => new CellElement {Index = i})
                 .ToArray()
                 ;
-
-            var words = m_finder
-                .FindAllWords(m_cells, 4, 4)
-                .OrderByDescending(c => c.Length)
-                .ToArray()
-                ;
-
-            Trace.WriteLine(words.Length);
         }
+
+        void Click_FindWords(object sender, RoutedEventArgs e)
+        {
+        }
+
+        void KeyUp_TextBox(object sender, KeyEventArgs e)
+        {
+            var tb = e.OriginalSource as TextBox;
+            if (tb == null)
+            {
+                return;
+            }
+
+            if (e.Key == Key.Return || e.Key == Key.Enter)
+            {
+                var req = new TraversalRequest(FocusNavigationDirection.Next);
+                tb.MoveFocus(req);
+            }
+        }                      
+
     }
 }

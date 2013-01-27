@@ -53,6 +53,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Generated_Commands.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generated_Commands.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated_DependencyProperties.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generated_DependencyProperties.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated_Events.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generated_Events.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Include_T4Include.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Include_T4Include.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,11 +82,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Finder.cs" />
-    <Compile Include="Include_T4Include.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Include_T4Include.tt</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +107,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\sv_SE.aff" />
     <EmbeddedResource Include="Dictionary\sv_SE.dic" />
+    <None Include="Generated_Commands.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Generated_Commands.cs</LastGenOutput>
+    </None>
+    <None Include="Generated_DependencyProperties.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Generated_DependencyProperties.cs</LastGenOutput>
+    </None>
+    <None Include="Generated_Events.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Generated_Events.cs</LastGenOutput>
+    </None>
     <None Include="Include_T4Include.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Include_T4Include.cs</LastGenOutput>

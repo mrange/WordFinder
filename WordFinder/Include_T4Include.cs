@@ -307,7 +307,7 @@ namespace WordFinder
                     return char.ToUpperInvariant(obj).GetHashCode();
                 }
             }
-            
+    
             sealed partial class Node
             {
                 readonly Dictionary<char, Node> m_edges = new Dictionary<char, Node>(new CaseInsensitiveCharComparer());
@@ -864,7 +864,7 @@ namespace WordFinder.Include
     static partial class MetaData
     {
         public const string RootPath        = @"https://raw.github.com/";
-        public const string IncludeDate     = @"2013-01-26T19:19:09";
+        public const string IncludeDate     = @"2013-01-27T19:58:31";
 
         public const string Include_0       = @"mrange/T4Include/master/Extensions/BasicExtensions.cs";
         public const string Include_1       = @"mrange/T4Include/master/Collections/TrieMap.cs";

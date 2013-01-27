@@ -1,0 +1,24 @@
+<#
+    // Note that the generating code contains extension points using partial methods
+
+    // The namespace the generated code is placed in
+    Namespace   = "WordFinder"         ;   
+
+    Model = new []
+    {
+        new ClassDefinition ("CellElement")
+        {
+            P ("int"            ,   "Index"     ),
+            P ("string"         ,   "Value"     ),
+        },
+        new ClassDefinition ("MainWindow")
+        {
+            P ("CellElement[]"  ,   "Cells"     ),
+        },
+    };
+
+#>
+
+<#@ include file="$(SolutionDir)\packages\T4IncludeWPF.1.0.1\T4\DependencyProperties.ttinclude" #>
+
+
